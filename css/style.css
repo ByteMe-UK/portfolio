@@ -1787,36 +1787,27 @@ img { max-width: 100%; display: block; }
 
 .lp-stat i { color: var(--accent-light); }
 
-/* LinkedIn official badge widget container */
-.lp-badge-wrap {
-  margin-top: 16px;
-  width: 100%;
+/* LinkedIn button — matches the portfolio theme */
+.btn-linkedin {
   display: flex;
-  justify-content: center;
-}
-
-/* Make the badge iframe/widget responsive inside the card */
-.lp-badge-wrap .badge-base {
-  width: 100% !important;
-  max-width: 260px;
-}
-
-/* Fallback button (shown if LinkedIn script is blocked) */
-.lp-badge-wrap .btn-linkedin {
-  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 10px 20px;
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px 20px;
   background: #0077b5;
-  color: white;
+  color: white !important;
   border-radius: var(--radius-sm);
   font-weight: 600;
   font-size: 0.9rem;
   transition: var(--transition);
+  box-shadow: 0 4px 14px rgba(0,119,181,0.25);
 }
-.lp-badge-wrap .btn-linkedin:hover {
+.btn-linkedin:hover {
   background: #005885;
   transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,119,181,0.35);
 }
 
 /* =========================================
