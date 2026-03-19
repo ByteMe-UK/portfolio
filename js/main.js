@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Hero counters */
   const cntObs = observer((el, obs) => { $$('[data-count]', el).forEach(animateCount); obs.unobserve(el); }, { threshold: 0.4 });
-  $$('.hero-stats').forEach(el => cntObs.observe(el));
+  $$('.hero-card-identity').forEach(el => cntObs.observe(el));
 
   /* Staggered card/pill fade-up */
   const fuObs = observer((el, obs) => { el.classList.add('visible'); obs.unobserve(el); });

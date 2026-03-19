@@ -444,11 +444,15 @@ img { max-width: 100%; display: block; }
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 40px;
+  padding: 40px 32px 36px;
   width: 100%;
-  max-width: 420px;
+  max-width: 360px;
   box-shadow: var(--shadow);
   animation: float 6s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
 }
 
 @keyframes float {
@@ -458,9 +462,9 @@ img { max-width: 100%; display: block; }
 
 .hero-avatar {
   position: relative;
-  width: 140px;
-  height: 140px;
-  margin: 0 auto 32px;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 28px;
 }
 
 .avatar-placeholder {
@@ -509,65 +513,85 @@ img { max-width: 100%; display: block; }
 
 @keyframes spin { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(360deg); } }
 
-.hero-stats {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 28px;
-  padding: 20px;
-  background: var(--bg-secondary);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
+/* Hero card identity block */
+.hero-card-identity {
+  text-align: center;
+  width: 100%;
 }
 
-.stat-item { text-align: center; position: relative; }
-
-.stat-suffix {
-  font-size: 1.4rem;
+.hero-card-name {
+  font-size: 1.15rem;
   font-weight: 800;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+  margin-bottom: 4px;
 }
 
-.stat-number {
-  display: block;
-  font-size: 2rem;
-  font-weight: 800;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.stat-label {
-  display: block;
-  font-size: 0.72rem;
+.hero-card-role {
+  font-size: 0.82rem;
+  font-weight: 500;
   color: var(--text-muted);
-  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: 2px;
+  letter-spacing: 1.2px;
+  margin-bottom: 20px;
 }
 
-.stat-divider { width: 1px; height: 40px; background: var(--border); }
-
-.tech-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+.hero-card-stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
   justify-content: center;
+  flex-wrap: wrap;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 28px;
+  width: 100%;
 }
 
-.tech-badge {
-  padding: 5px 12px;
-  background: rgba(29,78,216,0.08);
-  border: 1px solid rgba(29,78,216,0.18);
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--accent);
+.hero-card-stat-number {
+  font-size: 2.6rem;
+  font-weight: 900;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.hero-card-stat-suffix {
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-right: 8px;
+}
+
+.hero-card-stat-label {
+  display: block;
+  width: 100%;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* Avatar rings (sized for 150px avatar) */
+.ring-1 {
+  width: 172px; height: 172px;
+  border-color: rgba(29,78,216,0.25);
+  animation: spin 8s linear infinite;
+}
+
+.ring-2 {
+  width: 194px; height: 194px;
+  border-color: rgba(220,38,38,0.15);
+  animation: spin 12s linear infinite reverse;
 }
 
 .scroll-indicator {
