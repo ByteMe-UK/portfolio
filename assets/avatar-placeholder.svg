@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+    <clipPath id="circle"><circle cx="100" cy="100" r="100"/></clipPath>
+  </defs>
+  <circle cx="100" cy="100" r="100" fill="url(#bg)"/>
+  <!-- Body -->
+  <ellipse cx="100" cy="145" rx="52" ry="38" fill="rgba(255,255,255,0.18)" clip-path="url(#circle)"/>
+  <!-- Head -->
+  <circle cx="100" cy="82" r="34" fill="rgba(255,255,255,0.28)"/>
+  <!-- Robot eye left -->
+  <rect x="82" y="72" width="10" height="10" rx="3" fill="rgba(255,255,255,0.9)"/>
+  <!-- Robot eye right -->
+  <rect x="108" y="72" width="10" height="10" rx="3" fill="rgba(255,255,255,0.9)"/>
+  <!-- Robot antenna -->
+  <line x1="100" y1="48" x2="100" y2="60" stroke="rgba(255,255,255,0.6)" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="100" cy="45" r="5" fill="rgba(255,255,255,0.7)"/>
+  <!-- Smile -->
+  <path d="M88 92 Q100 104 112 92" stroke="rgba(255,255,255,0.8)" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg>

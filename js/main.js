@@ -77,19 +77,10 @@ const on = (el, ev, fn) => el && el.addEventListener(ev, fn);
 })();
 
 /* ── Resume PDF detection ──────────────── */
+// No redirect needed – resume.pdf exists. Just log if missing in dev.
 (function checkResume() {
   fetch('resume.pdf', { method: 'HEAD' })
-    .then(r => {
-      if (!r.ok) {
-        $$('[href="resume.pdf"]').forEach(a => {
-          a.href = 'resume.html';
-          a.removeAttribute('download');
-        });
-        const navBtn = $('#resume-nav-btn');
-        if (navBtn) navBtn.title = 'Add resume.pdf to the folder to enable download';
-      }
-    })
-    .catch(() => {});
+    .catch(() => console.warn('resume.pdf not found – add it to the portfolio root.'));
 })();
 
 /* ── Profile photo detection ───────────── */
@@ -102,7 +93,7 @@ const on = (el, ev, fn) => el && el.addEventListener(ev, fn);
     if (icon) icon.remove();
     const el = document.createElement('img');
     el.src = 'assets/photo.jpg';
-    el.alt = 'Lakshmen Roy';
+    el.alt = 'Laksh Menroy';
     el.className = 'avatar-photo';
     wrap.appendChild(el);
   };
@@ -261,23 +252,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-/* ── Project filter ─────────────────────── */
-const filterBtns   = $$('.filter-btn');
-const projectCards = $$('.project-card');
-
-filterBtns.forEach(btn => {
-  on(btn, 'click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.dataset.filter;
-    projectCards.forEach(card => {
-      const show = filter === 'all' || card.dataset.category === filter;
-      card.style.display = show ? '' : 'none';
-      if (show) card.style.animation = 'fadeInUp .4s ease both';
-    });
-  });
-});
-
 /* ── Contact form – Formspree AJAX ──────── */
 const form        = $('#contact-form');
 const formSuccess = $('#form-success');
@@ -331,5 +305,5 @@ style.textContent = `
 document.head.appendChild(style);
 
 /* ── Dev signature ──────────────────────── */
-console.log('%c LR. ', 'background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;font-size:18px;font-weight:900;padding:4px 10px;border-radius:6px;');
-console.log('%cAI/ML Engineer | github.com/lakshmenroy', 'color:#94a3b8;font-size:11px;');
+console.log('%c LM. ', 'background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;font-size:18px;font-weight:900;padding:4px 10px;border-radius:6px;');
+console.log('%cLaksh Menroy | AI/ML Engineer | github.com/lakshmenroy', 'color:#94a3b8;font-size:11px;');
