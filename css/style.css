@@ -337,11 +337,12 @@ img { max-width: 100%; display: block; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 680px;
-  margin: 0 auto 0 8%;
-  width: 100%;
+  /* left half — give the photo the right 50% */
+  width: 54%;
+  max-width: 760px;
+  margin: 0 0 0 8%;
   position: relative;
-  z-index: 1;
+  z-index: 2;           /* above the photo layer */
 }
 
 .hero-tag {
@@ -442,11 +443,25 @@ img { max-width: 100%; display: block; }
   position: absolute;
   top: 0;
   right: 0;
-  width: 52%;
+  width: 50%;
   height: 100%;
-  z-index: 0;
+  z-index: 1;           /* above ::before/::after blobs, below text (z-index:2) */
   pointer-events: none;
   overflow: hidden;
+}
+
+.hero-bg-photo::after {
+  /* overlay that fades the left edge into the page background */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--bg-primary) 0%,
+    rgba(240,244,255,0.55) 28%,
+    transparent 60%
+  );
+  z-index: 2;
 }
 
 .hero-bg-photo img {
@@ -455,19 +470,13 @@ img { max-width: 100%; display: block; }
   object-fit: cover;
   object-position: top center;
   display: block;
-  /* fade: transparent on left, opaque in centre, fades to bg at bottom */
-  -webkit-mask-image:
-    linear-gradient(to right,  transparent 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.5) 100%),
-    linear-gradient(to bottom, rgba(0,0,0,1) 50%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image:
-    linear-gradient(to right,  transparent 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.5) 100%),
-    linear-gradient(to bottom, rgba(0,0,0,1) 50%, transparent 100%);
-  mask-composite: intersect;
-  /* also tint/blend with page bg colour */
-  mix-blend-mode: luminosity;
-  opacity: 0.55;
-  filter: contrast(1.05) brightness(0.95);
+  position: relative;
+  z-index: 1;
+  /* fade bottom into background */
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image:          linear-gradient(to bottom, black 55%, transparent 100%);
+  opacity: 0.82;
+  filter: contrast(1.02) brightness(0.98) saturate(0.92);
 }
 
 /* hero is now single-column on the left – right side is just the bg photo */
@@ -2022,8 +2031,9 @@ img { max-width: 100%; display: block; }
    RESPONSIVE – TABLET
    ========================================= */
 @media (max-width: 1024px) {
-  .hero { margin: 0 auto; max-width: 100%; padding-left: 40px; padding-right: 40px; }
-  .hero-bg-photo { width: 45%; opacity: 0.35; }
+  .hero { width: 60%; margin: 0 0 0 5%; padding-left: 32px; padding-right: 24px; }
+  .hero-bg-photo { width: 48%; }
+  .hero-bg-photo img { opacity: 0.75; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-highlights { grid-template-columns: 1fr 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
@@ -2077,8 +2087,18 @@ img { max-width: 100%; display: block; }
   .nav-resume-btn { margin-top: 8px; justify-content: center; }
   .hamburger { display: flex; }
 
-  .hero { padding: 0 24px 80px; padding-top: calc(var(--nav-height) + 20px); min-height: 100svh; }
-  .hero-bg-photo { width: 100%; opacity: 0.18; }
+  .hero { padding: 0 24px 80px; padding-top: calc(var(--nav-height) + 20px); min-height: 100svh; width: 100%; margin: 0; }
+  .hero-bg-photo { width: 100%; z-index: 1; }
+  .hero-bg-photo::after {
+    /* on mobile cover the whole width with a stronger gradient so text is legible */
+    background: linear-gradient(
+      to right,
+      rgba(240,244,255,0.92) 0%,
+      rgba(240,244,255,0.85) 55%,
+      rgba(240,244,255,0.75) 100%
+    );
+  }
+  .hero-bg-photo img { opacity: 0.28; }
   .hero-title { font-size: 2.2rem; letter-spacing: -1px; }
 
   .section { padding: 64px 0; }
