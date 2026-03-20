@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume | Lakshmen Roy</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:#0a0a0f;color:#f1f5f9;
+         display:flex;flex-direction:column;align-items:center;justify-content:center;
+         min-height:100vh;text-align:center;padding:32px 24px;gap:0}
+    .icon{font-size:4rem;margin-bottom:20px;
+          background:linear-gradient(135deg,#7c3aed,#3b82f6);
+          -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+          background-clip:text}
+    h1{font-size:2rem;font-weight:900;margin-bottom:10px}
+    p{color:#94a3b8;line-height:1.8;max-width:480px;margin-bottom:8px}
+    .note{font-size:.82rem;color:#64748b;margin-top:4px;margin-bottom:32px}
+    .btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+    a.primary{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;
+      background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;
+      border-radius:8px;font-weight:600;text-decoration:none;transition:transform .2s}
+    a.primary:hover{transform:translateY(-3px)}
+    a.secondary{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;
+      background:transparent;color:#f1f5f9;border:1px solid rgba(255,255,255,.12);
+      border-radius:8px;font-weight:600;text-decoration:none;transition:all .2s}
+    a.secondary:hover{border-color:#7c3aed;background:rgba(124,58,237,.1)}
+    .divider{width:60px;height:2px;background:linear-gradient(135deg,#7c3aed,#3b82f6);
+             border-radius:99px;margin:28px auto}
+    .steps{text-align:left;background:#16161f;border:1px solid rgba(255,255,255,.07);
+           border-radius:12px;padding:24px 28px;max-width:460px;margin-bottom:32px}
+    .steps h3{font-size:.85rem;font-weight:700;text-transform:uppercase;
+              letter-spacing:1.5px;color:#94a3b8;margin-bottom:14px}
+    .steps li{font-size:.875rem;color:#94a3b8;margin-bottom:8px;
+              padding-left:20px;position:relative;line-height:1.6}
+    .steps li::before{content:'→';position:absolute;left:0;color:#7c3aed;font-weight:700}
+    code{background:rgba(124,58,237,.15);padding:2px 8px;border-radius:4px;
+         font-size:.8rem;color:#a78bfa;font-family:monospace}
+  </style>
+</head>
+<body>
+  <div class="icon"><i class="fas fa-file-alt"></i></div>
+  <h1>Resume / CV</h1>
+  <p>Drop your <strong>resume.pdf</strong> into the portfolio root folder to enable the download and preview button.</p>
+  <p class="note">Once added, visitors can view and download it directly from the portfolio.</p>
+
+  <div class="steps">
+    <h3>How to add your resume</h3>
+    <ul>
+      <li>Export your CV as <code>resume.pdf</code></li>
+      <li>Place it at the root: <code>/portfolio/resume.pdf</code></li>
+      <li>Commit &amp; push — GitHub Pages will serve it instantly</li>
+      <li>The "Download Resume" button in the navbar will work automatically</li>
+    </ul>
+  </div>
+
+  <div class="btns">
+    <a href="/" class="secondary"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+    <a href="https://www.linkedin.com/in/lakshmenroy/" target="_blank" class="primary">
+      <i class="fab fa-linkedin"></i> View LinkedIn
+    </a>
+  </div>
+</body>
+</html>
