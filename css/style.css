@@ -1735,13 +1735,11 @@ img { max-width: 100%; display: block; }
   flex-shrink: 0;
 }
 
-/* background-image approach — precise, no transform clipping issues */
+/* Pre-cropped face image — just cover the circle */
 .lp-avatar-photo {
-  background-image: url('../assets/image-6.png');
-  /* 300% = 3x zoom; image is 1170x1568, face is ~top 12% */
-  background-size: 300%;
-  /* 50% centres horizontally; 12% drops into face (not hairline) */
-  background-position: 50% 12%;
+  background-image: url('../assets/avatar-face.png');
+  background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 
